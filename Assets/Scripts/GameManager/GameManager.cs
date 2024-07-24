@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public Transform spawnPoint; // 플레이어 스폰 위치
+    public GameObject[] characterPrefabs; // 캐릭터 프리팹 배열
+
     void Start()
     {
         string playerName = PlayerPrefs.GetString("PlayerNickname", "Player");
@@ -12,7 +15,28 @@ public class GameManager : MonoBehaviour
         Debug.Log("Player Name: " + playerName);
         Debug.Log("Selected Character: " + selectedCharacter);
 
-        // 선택된 캐릭터에 따라 캐릭터 생성 로직 추가
-        // 예: Instantiate(characterPrefab, spawnPosition, spawnRotation);
+        GameObject characterPrefab = GetCharacterPrefab(selectedCharacter);
+        if (characterPrefab != null)
+        {
+            Instantiate(characterPrefab, spawnPoint.position, spawnPoint.rotation);
+        }
+        else
+        {
+            Debug.LogError("Selected character prefab not found!");
+        }
+    }
+
+    private GameObject GetCharacterPrefab(string characterName)
+    {
+        foreach (GameObject prefab in characterPrefabs)
+        {
+            if (prefab.name == characterName)
+            {
+                return prefab;
+            }
+        }
+        return null;
     }
 }
+
+

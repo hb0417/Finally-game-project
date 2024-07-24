@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6bb83ca9810a3544a1c84712f5b2ba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: testScene
+  sceneName: 1Stage
 --- !u!1 &274247693
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +495,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Catherine(Player1)
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &274247696
@@ -573,8 +573,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 2, y: -1.5}
+  m_SizeDelta: {x: 104, y: 103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &293005981
 GameObject:
@@ -963,10 +963,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 594153390}
-  - {fileID: 936634309}
-  - {fileID: 276083174}
   - {fileID: 1419746817}
+  - {fileID: 594153390}
+  - {fileID: 276083174}
+  - {fileID: 936634309}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1278,7 +1278,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Paperman(Player3)
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &694942989
@@ -1682,7 +1682,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Engie(Player2)
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &920426060
@@ -2565,6 +2565,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94585fbac771b34bb11a3d923aaca25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  characterPrefabs:
+  - {fileID: 5826558261146696658, guid: f1838603ae65cde4794e5d7f08dfba31, type: 3}
+  - {fileID: 3908387003652834942, guid: 5cff02a355b892c478a1e85a5576fb91, type: 3}
+  - {fileID: 7706321177157281420, guid: 9b4b75311c7da1e45bc944df5b4a7bd1, type: 3}
 --- !u!4 &2022672054
 Transform:
   m_ObjectHideFlags: 0

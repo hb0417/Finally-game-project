@@ -18,10 +18,15 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed;
     public float runSpeed;
     public float climbSpeed;
-    private Vector2 curMovementInput;
-    private bool isRunning = false;
+
     public float jumpForce;
+    public float stepHeight = 0.5f;  // 계단 높이
     public LayerMask groundLayerMask;
+
+    private float originalWalkSpeed;
+    private float originalRunSpeed;
+    private float originalJumpForce;
+
 
     [Header("Look")]
     public Transform cameraContainer;
@@ -42,6 +47,12 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator; // 애니메이터 추가
 
+    private Vector2 curMovementInput;
+    private bool isRunning = false;
+
+    private Coroutine speedBoostCoroutine;
+    private Coroutine jumpBoostCoroutine;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -49,8 +60,12 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>(); // 애니메이터 컴포넌트 가져오기
     }
 
-    void Start()
+    private void Start()
     {
+        // 원래 속도와 점프력을 저장
+        originalWalkSpeed = walkSpeed;
+        originalRunSpeed = runSpeed;
+        originalJumpForce = jumpForce;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -106,14 +121,14 @@ public class PlayerController : MonoBehaviour
             if (state == State.Walking)
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                animator.SetTrigger("Jump");
+                animator.SetBool("Jump", true);
                 animator.SetBool("Grounded", false);
                 animator.SetBool("IsFalling", true); // 점프하면 낙하 상태로 전환
             }
             else if (state == State.Climbing)
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                animator.SetTrigger("Jump");
+                animator.SetBool("Jump", true);
                 animator.SetBool("Grounded", false);
                 animator.SetBool("IsFalling", true); // 점프하면 낙하 상태로 전환
             }
@@ -137,7 +152,27 @@ public class PlayerController : MonoBehaviour
         float speed = isRunning ? runSpeed : walkSpeed;
         Vector3 moveDir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
         Vector3 newPos = rb.position + moveDir * speed * Time.fixedDeltaTime;
+
+        // 계단 처리
+        HandleStairs(moveDir, speed);
+
         rb.MovePosition(newPos);
+    }
+
+    private void HandleStairs(Vector3 moveDir, float speed)
+    {
+        RaycastHit hitLower;
+        RaycastHit hitUpper;
+        Vector3 rayStart = transform.position + (Vector3.up * 0.1f);
+
+        if (Physics.Raycast(rayStart, moveDir, out hitLower, 0.5f) && !Physics.Raycast(rayStart + (Vector3.up * stepHeight), moveDir, out hitUpper, 0.5f))
+        {
+            if (hitLower.collider.CompareTag("Stair"))
+            {
+                // 계단이 감지되면 계단의 위로 이동
+                rb.position += new Vector3(0, stepHeight, 0) * Time.fixedDeltaTime;
+            }
+        }
     }
 
     private void Climb()
@@ -171,9 +206,9 @@ public class PlayerController : MonoBehaviour
 
             if (Physics.Raycast(ray, 0.1f, groundLayerMask))
             {
-                animator.SetBool("Grounded", true); // 땅에 닿으면 Grounded를 true로 설정
-                animator.SetBool("IsFalling", false); // 땅에 닿으면 낙하 상태 종료
-                animator.SetBool("Jump", false); // 땅에 닿은후 점프 리셋
+                animator.SetBool("Grounded", true);
+                animator.SetBool("IsFalling", false);
+                animator.SetBool("Jump", false); // Reset jump trigger when grounded
                 return true;
             }
 
@@ -196,6 +231,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Idle", curMovementInput == Vector2.zero && state == State.Walking);
         animator.SetBool("Climb", state == State.Climbing);
 
+        // 접지 상태에 따라 블렌드 트리 매개변수를 업데이트
         if (animator.GetBool("Grounded"))
         {
             float verticalSpeed = rb.velocity.y;
@@ -203,11 +239,51 @@ public class PlayerController : MonoBehaviour
 
             if (verticalSpeed <= 0.1f)
             {
-                // Set landing state based on movement input
+                // 움직임 입력에 따른 착지 상태 설정
                 float movementMagnitude = curMovementInput.magnitude;
                 animator.SetFloat("LandState", movementMagnitude);
             }
         }
+    }
+
+    public IEnumerator SpeedBoost(float multiplier, float duration)
+    {
+        // 현재 실행 중인 속도 증가 코루틴이 있다면 중지
+        if (speedBoostCoroutine != null)
+        {
+            StopCoroutine(speedBoostCoroutine);
+        }
+        speedBoostCoroutine = StartCoroutine(SpeedBoostRoutine(multiplier, duration));
+        yield return speedBoostCoroutine;
+    }
+
+    private IEnumerator SpeedBoostRoutine(float multiplier, float duration)
+    {
+        walkSpeed *= multiplier;
+        runSpeed *= multiplier;
+        yield return new WaitForSeconds(duration);
+        walkSpeed = originalWalkSpeed;
+        runSpeed = originalRunSpeed;
+        speedBoostCoroutine = null;
+    }
+
+    public IEnumerator JumpBoost(float multiplier, float duration)
+    {
+        // 현재 실행 중인 점프력 증가 코루틴이 있다면 중지
+        if (jumpBoostCoroutine != null)
+        {
+            StopCoroutine(jumpBoostCoroutine);
+        }
+        jumpBoostCoroutine = StartCoroutine(JumpBoostRoutine(multiplier, duration));
+        yield return jumpBoostCoroutine;
+    }
+
+    private IEnumerator JumpBoostRoutine(float multiplier, float duration)
+    {
+        jumpForce *= multiplier;
+        yield return new WaitForSeconds(duration);
+        jumpForce = originalJumpForce;
+        jumpBoostCoroutine = null;
     }
 
     private void OnFootstep(AnimationEvent animationEvent)

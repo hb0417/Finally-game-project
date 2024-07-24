@@ -11,6 +11,7 @@ public class RankingDisplay : MonoBehaviour
     void Start()
     {
         rankingText.gameObject.SetActive(false); // 처음에는 비활성화
+        UpdateRankingDisplay();
     }
 
     public void UpdateRankingDisplay()
@@ -21,5 +22,6 @@ public class RankingDisplay : MonoBehaviour
         {
             rankingText.text += (i + 1) + ". " + rankings[i].playerName + " - " + rankings[i].time.ToString("F2") + "\n";
         }
+        rankingText.gameObject.SetActive(true); // 랭킹 텍스트 활성화
     }
 }
