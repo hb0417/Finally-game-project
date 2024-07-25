@@ -42,8 +42,15 @@ public class CharacterSelectionManager : MonoBehaviour
 
     public void StartGame()
     {
-        PlayerPrefs.SetString("PlayerNickname", playerName);
-        PlayerPrefs.SetString("SelectedCharacter", selectedCharacter);
-        SceneManager.LoadScene("GameScene"); // 게임 씬으로 이동
+        if (!string.IsNullOrEmpty(selectedCharacter) && !string.IsNullOrEmpty(playerName))
+        {
+            PlayerPrefs.SetString("PlayerNickname", playerName);
+            PlayerPrefs.SetString("SelectedCharacter", selectedCharacter);
+            SceneManager.LoadScene(3); // 지정된 게임 씬으로 이동
+        }
+        else
+        {
+            Debug.LogWarning("Character or nickname not selected.");
+        }
     }
 }

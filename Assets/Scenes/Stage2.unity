@@ -18571,6 +18571,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 433513102}
     - target: {fileID: 2706332645776585793, guid: 63a2f094e5b1e2e4da752b22782c8960, type: 3}
+      propertyPath: gameSceneName
+      value: Stage2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706332645776585793, guid: 63a2f094e5b1e2e4da752b22782c8960, type: 3}
       propertyPath: rankingDisplay
       value: 
       objectReference: {fileID: 1024855261}
@@ -18578,6 +18582,10 @@ PrefabInstance:
       propertyPath: rankingManager
       value: 
       objectReference: {fileID: 1024855260}
+    - target: {fileID: 2706332645776585793, guid: 63a2f094e5b1e2e4da752b22782c8960, type: 3}
+      propertyPath: anotherSceneName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3964015596535201038, guid: 63a2f094e5b1e2e4da752b22782c8960, type: 3}
       propertyPath: m_LocalPosition.x
       value: -140.83527

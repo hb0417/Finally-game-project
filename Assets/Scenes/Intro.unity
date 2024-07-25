@@ -340,8 +340,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1636475707}
-        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+      - m_Target: {fileID: 2022672052}
+        m_TargetAssemblyTypeName: CharacterSelectionManager, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6bb83ca9810a3544a1c84712f5b2ba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 1Stage
+  sceneName: Stage1
 --- !u!1 &274247693
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +495,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Catherine(Player1)
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &274247696
@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 293005984}
   - component: {fileID: 293005983}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -646,7 +646,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: GameStart
 --- !u!222 &293005984
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1119,7 +1119,7 @@ GameObject:
   - component: {fileID: 596583268}
   - component: {fileID: 596583267}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1177,7 +1177,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 'Close
+
+'
 --- !u!222 &596583268
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1278,7 +1280,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Paperman(Player3)
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &694942989
@@ -1682,7 +1684,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Engie(Player2)
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &920426060
@@ -1893,7 +1895,7 @@ GameObject:
   - component: {fileID: 1017897132}
   - component: {fileID: 1017897131}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Clear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1951,7 +1953,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Clear
 --- !u!222 &1017897132
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2047,7 +2049,7 @@ GameObject:
   - component: {fileID: 1213291247}
   - component: {fileID: 1213291246}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Ranking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2105,7 +2107,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Ranking
 --- !u!222 &1213291247
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2566,10 +2568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
-  characterPrefabs:
-  - {fileID: 5826558261146696658, guid: f1838603ae65cde4794e5d7f08dfba31, type: 3}
-  - {fileID: 3908387003652834942, guid: 5cff02a355b892c478a1e85a5576fb91, type: 3}
-  - {fileID: 7706321177157281420, guid: 9b4b75311c7da1e45bc944df5b4a7bd1, type: 3}
+  characterPrefabs: []
 --- !u!4 &2022672054
 Transform:
   m_ObjectHideFlags: 0
@@ -3038,7 +3037,7 @@ GameObject:
   - component: {fileID: 5484886338860904930}
   - component: {fileID: 8525545274226327715}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3155,9 +3154,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'GaneStart
-
-'
+  m_Text: Start
 --- !u!224 &9009607297302907300
 RectTransform:
   m_ObjectHideFlags: 0

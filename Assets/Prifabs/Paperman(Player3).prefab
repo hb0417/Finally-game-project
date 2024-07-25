@@ -2377,6 +2377,7 @@ GameObject:
   - component: {fileID: 2597926865716471499}
   - component: {fileID: 5981405290880400355}
   - component: {fileID: 2148386044672470006}
+  - component: {fileID: 8635412360305012335}
   m_Layer: 7
   m_Name: Paperman(Player3)
   m_TagString: Player
@@ -2520,6 +2521,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.8930745, z: 0.27796745}
   m_Center: {x: 0, y: 0.9592185, z: 0.067116976}
+--- !u!95 &8635412360305012335
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7706321177157281420}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 175778b7ade70b147802e2ade6a20466, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7827463115335444069
 GameObject:
   m_ObjectHideFlags: 0
