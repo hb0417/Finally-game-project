@@ -5,12 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class RankingEntry
 {
-    public string playerName;
+    public string name;
     public float time;
 
-    public RankingEntry(string playerName, float time)
+    public RankingEntry(string name, float time)
     {
-        this.playerName = playerName;
+        this.name = name;
         this.time = time;
     }
 }
@@ -18,52 +18,46 @@ public class RankingEntry
 public class RankingManager : MonoBehaviour
 {
 
-    public List<RankingEntry> rankings = new List<RankingEntry>();
+    public string rankingKey; // 각 씬별 고유한 랭킹 키
 
-    void Awake()
+    public List<RankingEntry> GetRanking()
     {
-        LoadRankings(); // 게임 시작 시 랭킹 불러오기
-    }
+        List<RankingEntry> ranking = new List<RankingEntry>();
+        int count = PlayerPrefs.GetInt(rankingKey + "_Count", 0);
 
-    public void AddEntry(string playerName, float time)
-    {
-        rankings.Add(new RankingEntry(playerName, time));
-        rankings.Sort((a, b) => a.time.CompareTo(b.time)); // 시간을 기준으로 오름차순 정렬
-        SaveRankings(); // 랭킹 저장
-    }
-
-    public List<RankingEntry> GetRankings()
-    {
-        return rankings;
-    }
-
-    public void SaveRankings()
-    {
-        PlayerPrefs.SetInt("RankingCount", rankings.Count);
-        for (int i = 0; i < rankings.Count; i++)
-        {
-            PlayerPrefs.SetString("RankingEntry_" + i + "_Name", rankings[i].playerName);
-            PlayerPrefs.SetFloat("RankingEntry_" + i + "_Time", rankings[i].time);
-        }
-        PlayerPrefs.Save();
-    }
-
-    public void LoadRankings()
-    {
-        rankings.Clear();
-        int count = PlayerPrefs.GetInt("RankingCount", 0);
         for (int i = 0; i < count; i++)
         {
-            string name = PlayerPrefs.GetString("RankingEntry_" + i + "_Name", "Player");
-            float time = PlayerPrefs.GetFloat("RankingEntry_" + i + "_Time", 0f);
-            rankings.Add(new RankingEntry(name, time));
+            string entry = PlayerPrefs.GetString(rankingKey + "_" + i, "");
+            if (!string.IsNullOrEmpty(entry))
+            {
+                string[] parts = entry.Split('-');
+                string name = parts[0].Trim();
+                float time = float.Parse(parts[1]);
+                ranking.Add(new RankingEntry(name, time));
+            }
         }
+
+        ranking.Sort((a, b) => a.time.CompareTo(b.time));
+        return ranking;
     }
 
-    // 랭킹 초기화
-    public void ClearRankings()
+    public void AddEntry(string name, float time)
     {
-        rankings.Clear();
-        PlayerPrefs.DeleteAll();
+        List<RankingEntry> ranking = GetRanking();
+        ranking.Add(new RankingEntry(name, time));
+
+        ranking.Sort((a, b) => a.time.CompareTo(b.time));
+        SaveRanking(ranking);
+    }
+
+    private void SaveRanking(List<RankingEntry> ranking)
+    {
+        PlayerPrefs.SetInt(rankingKey + "_Count", ranking.Count);
+
+        for (int i = 0; i < ranking.Count; i++)
+        {
+            string entry = ranking[i].name + " - " + ranking[i].time;
+            PlayerPrefs.SetString(rankingKey + "_" + i, entry);
+        }
     }
 }

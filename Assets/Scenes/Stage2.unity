@@ -6380,6 +6380,10 @@ PrefabInstance:
       propertyPath: rankingText
       value: 
       objectReference: {fileID: 1054483380}
+    - target: {fileID: 5143562932125231664, guid: 0e2079387725dd141a7f1842bc927a26, type: 3}
+      propertyPath: rankingKey
+      value: Stage2
+      objectReference: {fileID: 0}
     - target: {fileID: 5363488421451347262, guid: 0e2079387725dd141a7f1842bc927a26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -15199,6 +15203,10 @@ PrefabInstance:
     - target: {fileID: 7989813027356994438, guid: 37b8a82444233844eb4dc5f2039781c7, type: 3}
       propertyPath: m_Name
       value: RankingPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989813027356994438, guid: 37b8a82444233844eb4dc5f2039781c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8708308486771187606, guid: 37b8a82444233844eb4dc5f2039781c7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

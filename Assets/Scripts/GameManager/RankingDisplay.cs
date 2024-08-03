@@ -5,23 +5,17 @@ using UnityEngine.UI;
 
 public class RankingDisplay : MonoBehaviour
 {
-    public RankingManager rankingManager;
-    public Text rankingText; // 랭킹을 표시할 UI 텍스트
-
-    void Start()
-    {
-        rankingText.gameObject.SetActive(false); // 처음에는 비활성화
-        UpdateRankingDisplay();
-    }
+    public Text rankingText; // 랭킹을 표시할 텍스트 UI
+    public RankingManager rankingManager; // 랭킹 매니저 참조
 
     public void UpdateRankingDisplay()
     {
-        List<RankingEntry> rankings = rankingManager.GetRankings();
+        List<RankingEntry> ranking = rankingManager.GetRanking();
+
         rankingText.text = "";
-        for (int i = 0; i < rankings.Count; i++)
+        for (int i = 0; i < ranking.Count; i++)
         {
-            rankingText.text += (i + 1) + ". " + rankings[i].playerName + " - " + rankings[i].time.ToString("F2") + "\n";
+            rankingText.text += $"{i + 1}. {ranking[i].name} - {ranking[i].time:F2}\n";
         }
-        rankingText.gameObject.SetActive(true); // 랭킹 텍스트 활성화
     }
 }

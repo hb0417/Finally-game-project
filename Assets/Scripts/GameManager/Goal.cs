@@ -83,7 +83,7 @@ public class Goal : MonoBehaviour
     // 랭킹 기록 초기화
     public void ClearRankings()
     {
-        rankingManager.ClearRankings();
+        //rankingManager.ClearRankings();
         rankingDisplay.UpdateRankingDisplay();
     }
 }

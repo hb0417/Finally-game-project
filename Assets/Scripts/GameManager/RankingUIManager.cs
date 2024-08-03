@@ -5,39 +5,33 @@ using UnityEngine.UI;
 
 public class RankingUIManager : MonoBehaviour
 {
-    public GameObject rankingPanel; // 랭킹 패널 UI
-    public Text rankingText; // 랭킹을 표시하는 텍스트
-    public RankingManager rankingManager; // 랭킹 매니저
+    public Text rankingText; // 랭킹을 표시할 텍스트 UI
+    public RankingManager rankingManager; // 랭킹 매니저 참조
+    public GameObject rankingPanel; // 랭킹 패널
 
     void Start()
     {
         rankingPanel.SetActive(false); // 시작 시 랭킹 패널 비활성화
     }
 
-    public void ShowRanking()
+    // 각 버튼에서 호출할 메서드, rankingKey는 각 씬의 랭킹을 구분하는 키
+    public void ShowRanking(string rankingKey)
     {
-        rankingPanel.SetActive(true); // 랭킹 패널 활성화
-        UpdateRankingDisplay();
-    }
+        rankingManager.rankingKey = rankingKey;
+        List<RankingEntry> ranking = rankingManager.GetRanking();
 
-    public void HideRanking()
-    {
-        rankingPanel.SetActive(false); // 랭킹 패널 비활성화
-    }
-
-    public void UpdateRankingDisplay()
-    {
-        List<RankingEntry> rankings = rankingManager.GetRankings();
         rankingText.text = "";
-        for (int i = 0; i < rankings.Count; i++)
+        for (int i = 0; i < ranking.Count; i++)
         {
-            rankingText.text += $"{i + 1}. {rankings[i].playerName} - {rankings[i].time:F2}\n";
+            rankingText.text += $"{i + 1}. {ranking[i].name} - {ranking[i].time:F2}\n";
         }
+
+        rankingPanel.SetActive(true); // 랭킹 패널 활성화
     }
 
-    public void ClearRankings()
+    // 랭킹 패널을 닫는 메서드
+    public void CloseRanking()
     {
-        rankingManager.ClearRankings();
-        UpdateRankingDisplay();
+        rankingPanel.SetActive(false);
     }
 }

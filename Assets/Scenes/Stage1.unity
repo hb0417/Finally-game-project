@@ -11019,6 +11019,10 @@ PrefabInstance:
       propertyPath: rankingText
       value: 
       objectReference: {fileID: 1897006780}
+    - target: {fileID: 5143562932125231664, guid: 0e2079387725dd141a7f1842bc927a26, type: 3}
+      propertyPath: rankingKey
+      value: Stage1
+      objectReference: {fileID: 0}
     - target: {fileID: 5363488421451347262, guid: 0e2079387725dd141a7f1842bc927a26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
