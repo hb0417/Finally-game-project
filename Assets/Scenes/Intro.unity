@@ -3537,7 +3537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea7cfea964d3ef43ba086d2eec2755e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nicknamePanel: {fileID: 1419746816}
+  nicknamePanel: {fileID: 2217532127905688081}
   characterSelectionPanel: {fileID: 936634308}
   nicknameInputField: {fileID: 1797843731961999102}
   startGameButton: {fileID: 210478223}
