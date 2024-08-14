@@ -16,7 +16,11 @@ public class CharacterSelectionManager : MonoBehaviour
 
     void Start()
     {
-        characterSelectionPanel.SetActive(false); // 시작 시 캐릭터 선택 패널 비활성화
+        // 인트로 씬이 시작되면 이전에 저장된 닉네임 삭제
+        PlayerPrefs.DeleteKey("PlayerNickname");
+
+        characterSelectionPanel.SetActive(false); // 캐릭터 선택 패널 비활성화
+        nicknamePanel.SetActive(true); // 닉네임 입력 패널 활성화
         startGameButton.interactable = false; // 선택되지 않은 상태에서는 시작 버튼 비활성화
     }
 
@@ -25,6 +29,7 @@ public class CharacterSelectionManager : MonoBehaviour
         playerName = nicknameInputField.text;
         if (!string.IsNullOrEmpty(playerName))
         {
+            PlayerPrefs.SetString("PlayerNickname", playerName); // 닉네임 저장
             nicknamePanel.SetActive(false); // 닉네임 입력 패널 비활성화
             characterSelectionPanel.SetActive(true); // 캐릭터 선택 패널 활성화
         }
@@ -44,8 +49,7 @@ public class CharacterSelectionManager : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(selectedCharacter) && !string.IsNullOrEmpty(playerName))
         {
-            PlayerPrefs.SetString("PlayerNickname", playerName);
-            PlayerPrefs.SetString("SelectedCharacter", selectedCharacter);
+            PlayerPrefs.SetString("SelectedCharacter", selectedCharacter); // 선택된 캐릭터 저장
             SceneManager.LoadScene(3); // 지정된 게임 씬으로 이동
         }
         else

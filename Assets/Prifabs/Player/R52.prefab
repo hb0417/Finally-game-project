@@ -9354,18 +9354,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpen: 1
   Index: 0
-  MoveSpeed: 7
-  SprintRunSpeed: 13
-  CrouchSpeed: 2
+  MoveSpeed: 9.2
+  SprintRunSpeed: 15
+  CrouchSpeed: 5
   Crouch: 1
   CrouchClliderSize: 2
   CrouchClliderOffSet: {x: 0, y: 1, z: 0}
   layerJump:
     serializedVersion: 2
     m_Bits: 65
-  jumpForce: 10
-  JumpHigh: 4
-  TimerJump: 0.5
+  jumpForce: 18
+  JumpHigh: 4.8
+  TimerJump: 0.3
   GrawndDistens: 0.6
   LayerWall:
     serializedVersion: 2
@@ -9425,7 +9425,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3267586416473177924}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9456,7 +9456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd01d6e858399d40b876e0ce9dc5114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOpen: 0
+  isOpen: 1
   TimeToWakeUp: 4
   RagDoll: 0
   fallTime: 1
@@ -9492,8 +9492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6f24c50bb141047ad30f3076acca16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOpen: 0
-  speed: 1
+  isOpen: 1
+  speed: 2
   InputLsdderButtons:
     Joystick: 6
     Kaybord: 5
@@ -9524,8 +9524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639bdec706d0a524fb670e2e42e41032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOpen: 0
-  speed: 1
+  isOpen: 1
+  speed: 2
   PipeInputButtons:
     Joystick: 6
     Kaybord: 5

@@ -8,6 +8,8 @@ public class Goal : MonoBehaviour
     public RankingManager rankingManager; // 랭킹 매니저
     public RankingDisplay rankingDisplay; // 랭킹 디스플레이
     public GameObject rankingUI; // 랭킹 UI
+    private bool hasReachedGoal = false; // Goal에 도달했는지 확인하는 변수
+
     public string introSceneName = "IntroScene"; // 인트로 씬 이름
     public string gameSceneName = "GameScene"; // 게임 씬 이름
     public string anotherSceneName = "AnotherScene"; // 또 다른 씬 이름
@@ -15,8 +17,10 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!hasReachedGoal && other.CompareTag("Player"))
         {
+            hasReachedGoal = true; // 중복 실행 방지
+
             Timer timer = FindObjectOfType<Timer>();
             if (timer != null)
             {
@@ -43,6 +47,16 @@ public class Goal : MonoBehaviour
                     playerController.enabled = false;
                 }
             }
+        }
+    }
+
+    private void Update()
+    {
+        if (hasReachedGoal)
+        {
+            // 마우스 활성화 상태를 지속적으로 확인하고 설정
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
@@ -78,12 +92,5 @@ public class Goal : MonoBehaviour
 
         // 다른 씬으로 이동
         SceneManager.LoadScene(anotherSceneName);
-    }
-
-    // 랭킹 기록 초기화
-    public void ClearRankings()
-    {
-        //rankingManager.ClearRankings();
-        rankingDisplay.UpdateRankingDisplay();
     }
 }
