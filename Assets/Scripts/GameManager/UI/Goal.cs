@@ -93,8 +93,16 @@ public class Goal : MonoBehaviour
         // 게임 일시정지 해제
         Time.timeScale = 1f;
 
-        // 인트로 씬으로 이동
-        SceneManager.LoadScene(introSceneName);
+        // 닉네임 리셋
+        NicknameManager nicknameManager = FindObjectOfType<NicknameManager>();
+        if (nicknameManager != null)
+        {
+            nicknameManager.ResetNickname();
+        }
+        else
+        {
+            SceneManager.LoadScene(introSceneName); // 인트로 씬으로 이동
+        }
     }
 
     public void GoToAnotherScene()
@@ -102,7 +110,20 @@ public class Goal : MonoBehaviour
         // 게임 일시정지 해제
         Time.timeScale = 1f;
 
+        // 씬 로드 후 마우스 커서 비활성화
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
         // 다른 씬으로 이동
         SceneManager.LoadScene(anotherSceneName);
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 마우스 커서 비활성화 및 잠금
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        // 이벤트 구독 해제
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

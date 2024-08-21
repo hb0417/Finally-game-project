@@ -2070,6 +2070,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 623046048}
     m_Modifications:
+    - target: {fileID: 1326786161469605362, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326786161469605362, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 1524290316369453790, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
       propertyPath: m_Name
       value: Timer
@@ -2100,11 +2108,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5558102303153274723, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5558102303153274723, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 40
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 5558102303153274723, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2140,7 +2148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5558102303153274723, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -71
+      value: -147
       objectReference: {fileID: 0}
     - target: {fileID: 5558102303153274723, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -13558,9 +13566,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 623046048}
     m_Modifications:
+    - target: {fileID: 3736341758729350266, guid: 37b8a82444233844eb4dc5f2039781c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4018775364853486441, guid: 37b8a82444233844eb4dc5f2039781c7, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535903370599869108, guid: 37b8a82444233844eb4dc5f2039781c7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1557491853}
+    - target: {fileID: 7535903370599869108, guid: 37b8a82444233844eb4dc5f2039781c7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
       objectReference: {fileID: 0}
     - target: {fileID: 7989813027356994438, guid: 37b8a82444233844eb4dc5f2039781c7, type: 3}
       propertyPath: m_Name
@@ -20016,6 +20036,10 @@ PrefabInstance:
     - target: {fileID: 3990308548531849077, guid: aea19f36406c1574b9b8b0d462b922da, type: 3}
       propertyPath: m_Name
       value: GameOverPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3990308548531849077, guid: aea19f36406c1574b9b8b0d462b922da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6888679252732945086, guid: aea19f36406c1574b9b8b0d462b922da, type: 3}
       propertyPath: m_IsActive
