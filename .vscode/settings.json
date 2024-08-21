@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Finally-game-project.sln"
+    "dotnet.defaultSolution": "Finally-game-project.sln",
+    "dotnet.preferCSharpExtension": true
 }
