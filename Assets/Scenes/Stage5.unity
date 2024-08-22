@@ -2075,8 +2075,12 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1326786161469605362, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326786161469605362, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 90
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1524290316369453790, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
       propertyPath: m_Name
@@ -2148,7 +2152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5558102303153274723, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -147
+      value: -63
       objectReference: {fileID: 0}
     - target: {fileID: 5558102303153274723, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6228,8 +6232,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 243916384}
-  - {fileID: 1373951108}
   - {fileID: 2102934293}
+  - {fileID: 1373951108}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -13588,7 +13592,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7989813027356994438, guid: 37b8a82444233844eb4dc5f2039781c7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246054700483178921, guid: 37b8a82444233844eb4dc5f2039781c7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336901394323514576, guid: 37b8a82444233844eb4dc5f2039781c7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 77
       objectReference: {fileID: 0}
     - target: {fileID: 9187603117041922930, guid: 37b8a82444233844eb4dc5f2039781c7, type: 3}
       propertyPath: m_Pivot.x

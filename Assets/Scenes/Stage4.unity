@@ -13183,8 +13183,12 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1326786161469605362, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326786161469605362, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 90
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1524290316369453790, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
       propertyPath: m_Name
@@ -13256,7 +13260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5558102303153274723, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -142
+      value: -65
       objectReference: {fileID: 0}
     - target: {fileID: 5558102303153274723, guid: e6b081eddc82d7f4aa77d7e220811874, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -25042,9 +25046,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1215165393}
   - {fileID: 1025396157}
   - {fileID: 823109228}
-  - {fileID: 1215165393}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
